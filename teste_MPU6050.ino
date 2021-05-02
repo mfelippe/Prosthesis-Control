@@ -11,7 +11,6 @@ int AcX,AcY,AcZ,GyX,GyY,GyZ;
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("iniciando teste com o MPU6050");
   Wire.begin();
   Wire.beginTransmission(MPU);
   Wire.write(0x6B); 
@@ -38,17 +37,19 @@ void loop()
   GyZ=Wire.read()<<8|Wire.read();  //0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
    
   //Envia valor X do acelerometro para a serial 
-  Serial.print("AcX = "); Serial.print(AcX); 
+  //Serial.print("[");
+  Serial.print(AcX); Serial.print(",");
   //Envia valor Y do acelerometro para a serial 
-  Serial.print(" | AcY = "); Serial.print(AcY);   
+  Serial.print(AcY); Serial.print(",");  
   //Envia valor Z do acelerometro para a serial 
-  Serial.print(" | AcZ = "); Serial.print(AcZ);   
+  Serial.print(AcZ);  Serial.print(",");
   //Envia valor X do giroscopio para a serial 
-  Serial.print(" | GyX = "); Serial.print(GyX); 
+  Serial.print(GyX); Serial.print(",");
   //Envia valor Y do giroscopio para a serial 
-  Serial.print(" | GyY = "); Serial.print(GyY);
+  Serial.print(GyY);Serial.print(",");
   //Envia valor Z do giroscopio para a serial 
-  Serial.print(" | GyZ = "); Serial.println(GyZ);
+  Serial.println(GyZ);
+  //Serial.println("]");
   //Aguarda 300 ms e reinicia o processo
-  delay(1000);
+  delay(300);
 }
