@@ -35,9 +35,10 @@ while i < 1000:  # loop para captar os primeiros 1000 dados
         roll_y.append(float(leitura_serial[1]))
         yaw_z.append(float(leitura_serial[2]))
 
-plt.plot(pitch_x)
-plt.plot(roll_y)
-plt.plot(yaw_z)
+plt.plot(pitch_x,label='PITCH')
+plt.plot(roll_y, label='ROLL')
+plt.plot(yaw_z, label='YAW')
+plt.legend()
 plt.grid()
 plt.show()
 
